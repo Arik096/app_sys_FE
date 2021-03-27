@@ -9,9 +9,6 @@
 </template>
 
 <style>
-*{ 
-  overflow-x: auto;
-}
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -19,7 +16,6 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  border: 1px solid green;
 }
 
 #nav 
@@ -31,7 +27,7 @@
 #nav a {
   text-decoration: none;
   font-weight: bold;
-  padding: 30px;
+  padding: 20px;
   color: #030303;
 }
 
