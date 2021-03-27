@@ -5,7 +5,9 @@
     </div>
     <div id="option_boxes">
       <div v-for="homepage_icon in homepage_icons" :key="homepage_icon.name">
-        <Box :src="homepage_icon.src" :title="homepage_icon.name"/>
+        <router-link :to="{ name: homepage_icon.link }">
+          <Box :src="homepage_icon.src" :title="homepage_icon.name"/>
+        </router-link>
       </div>
     </div>
   </div>
@@ -19,15 +21,15 @@ export default {
   components: {
     Box,
   },
-  data(){
-    return{
+  data() {
+    return {
       homepage_icons: [
-        {name: 'Get a Apointment', src: 'apointment.svg'},
-        {name: 'Find Your Doctor', src: 'doctor.svg'},
-        {name: 'Patient Portal', src: 'patient.svg'}
-      ]
-    }
-  }
+        { name: "Get a Apointment", src: "apointment.svg", link: "Apointment" },
+        { name: "Find Your Doctor", src: "doctor.svg", link: "FindDoctor"  },
+        { name: "Patient Portal", src: "patient.svg", link: "PatientPortal"  },
+      ],
+    };
+  },
 };
 </script>
 
@@ -40,7 +42,6 @@ export default {
   grid-template-rows: 1fr;
   gap: 20px 20px;
   height: auto;
-  grid-template-areas:
-    ". . .";
+  grid-template-areas: ". . .";
 }
 </style>

@@ -22,4 +22,7 @@ export default {
 img{
     height: 100px;
 }
+h3{
+    text-decoration: none !important;
+}
 </style>
