@@ -1,12 +1,26 @@
 <template>
-  <div id="nav">
+<NavBar />
+  <!-- <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link :to="{name: 'Apointment'}">Apointment</router-link> |
     <router-link :to="{name: 'FindDoctor'}">Find Doctor</router-link> |
     <router-link :to="{name: 'PatientPortal'}">Patient Portal</router-link>
-  </div>
+  </div> -->
   <router-view/>
+  <Footer />
 </template>
+
+
+<script>
+import NavBar from './components/NavBar.vue'
+import Footer from './components/Footer.vue'
+export default {
+  components: {
+    NavBar,
+    Footer
+  }
+}
+</script>
 
 <style>
 
@@ -18,20 +32,20 @@
   color: #2c3e50;
 }
 
-#nav 
+/* #nav 
 {
   padding: 30px;
   background-color: #41B883;
-}
+} */
 
-#nav a {
+/* #nav a {
   text-decoration: none;
   font-weight: bold;
   padding: 20px;
   color: #030303;
-}
+} */
 
-#nav a.router-link-exact-active {
+/* #nav a.router-link-exact-active {
   color: #ffffff;
-}
+} */
 </style>
