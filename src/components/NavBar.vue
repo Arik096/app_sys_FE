@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-teal" id="custom_nav">
     <div class="container-fluid" id="custom_nav">
-      <!-- <a class="navbar-brand" href="#">APP_SYS</a> -->
+      <!-- <a class="navbar-brand" href="#">ISEL</a> -->
       <button
         class="navbar-toggler"
         type="button"
