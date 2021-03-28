@@ -1,7 +1,7 @@
 <template>
   <div id="box">
       <img :src="require('../../assets/' + src)">
-      <h3>{{title}}</h3>
+      <h5>{{title}}</h5>
   </div>
 </template>
 
@@ -13,8 +13,8 @@ export default {
 
 <style>
 #box{
-    height: 200px;
-    width: 200px;
+    height: 250px;
+    width: 300px;
     padding: 50px;
     border: 1px solid green;
     border-radius: 10px;
@@ -22,7 +22,7 @@ export default {
 img{
     height: 100px;
 }
-h3{
+h5{
     text-decoration: none !important;
 }
 </style>
