@@ -6,7 +6,7 @@
     <div class="container" id="option_boxes">
       <div class="row">
         <div
-          class="col-md" id="single_box"
+          class="col-sm" id="single_box"
           v-for="homepage_icon in homepage_icons"
           :key="homepage_icon.name"
         >
@@ -43,11 +43,17 @@ export default {
 #home_title, #option_boxes{
   padding: 25px;
   display: grid;
-  justify-content: center;
+  align-self: center; 
+  align-items: center;
+  justify-items: center;
 }
 #single_box{
   padding-left: 50px;
   padding-right: 50px;
   padding-top: 10px;
+  display: grid;
+  align-self: center; 
+  align-items: center;
+  justify-items: center;
 }
 </style>
