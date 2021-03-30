@@ -1,7 +1,9 @@
 <template>
   <div class="home">
-    <div id="home_title">
+    <div id="home_title" class="container">
+      <div class="row">
       <h1>Welome</h1>
+      </div>
     </div>
     <div class="container" id="option_boxes">
       <div class="row">
