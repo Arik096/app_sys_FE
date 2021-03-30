@@ -8,11 +8,14 @@
             <label class="input-group-text" for="inputGroupSelect01"
               >Find By Department</label
             >
-            <select class="form-select" id="inputGroupSelect01">
-              <option selected>choose a department</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+            <select class="form-select" :model="Selected">
+              <option disabled selected>Choose a Department</option>
+              <option
+                v-for="department in departments"
+                :key="department.id"
+              >
+                {{ department.name }}
+              </option>
             </select>
           </div>
         </h4>
@@ -33,7 +36,11 @@
   </div>
   <div class="container">
     <div class="row" id="result">
-      <div class="col-sm" id="result_col"><h4>Result</h4></div>
+      <div class="col-sm" id="result_col">
+        <h4>Result</h4>
+        {{ Selected }}
+        <table></table>
+      </div>
     </div>
   </div>
 </template>
@@ -43,7 +50,40 @@ export default {
   data() {
     return {
       Doctors: [
+        {
+          name: "	Dr. Biswajit Bhattacharjee",
+          Department: "Cancer Care Center",
+          Info: "Consultant (Radiation and clinical Oncology)",
+          image: "Biswajit_Bhattacharjee.jpg",
+        },
+        {
+          name: "Dr. Anonto",
+          Department: "AIDS",
+          Info: "Consultant (Radiation and clinical Oncology)",
+          image: "Biswajit_Bhattacharjee.jpg",
+        },
+        {
+          name: "Dr. Arik",
+          Department: "ENT",
+          Info: "Consultant (Radiation and clinical Oncology)",
+          image: "Biswajit_Bhattacharjee.jpg",
+        },
       ],
+      departments: [
+        {
+          name: "Cancer Care Center",
+          id: 1,
+        },
+        {
+          name: "AIDS",
+          id: 2,
+        },
+        {
+          name: "ENT",
+          id: 3,
+        },
+      ],
+      Selected: "",
     };
   },
 };
@@ -56,7 +96,9 @@ h1 {
 #result {
   padding: 20px;
 }
-#find_dept, #find_name, #result_col {
+#find_dept,
+#find_name,
+#result_col {
   border: 1px solid green;
   border-radius: 5px;
   margin: 20px;
