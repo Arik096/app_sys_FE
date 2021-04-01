@@ -8,11 +8,16 @@
             <label class="input-group-text" for="inputGroupSelect01"
               >Find By Department</label
             >
-            <select class="form-select" :model="Selected">
-              <option disabled selected>Choose a Department</option>
+            <select
+              class="form-select"
+              v-model="SelectedDepartmentID"
+              @change="ShowSearchResult()"
+            >
+              <option selected disabled>Choose a Department</option>
               <option
                 v-for="department in departments"
                 :key="department.id"
+                :value="department.name"
               >
                 {{ department.name }}
               </option>
@@ -36,10 +41,23 @@
   </div>
   <div class="container">
     <div class="row" id="result">
-      <div class="col-sm" id="result_col">
+      <div class="col-sm" id="result_card">
         <h4>Result</h4>
-        {{ Selected }}
-        <table></table>
+        <table v-for="result in SearchResult" :key="result.id">
+          <div class="card" id="result-card">
+            <div class="card-header">{{result.name}}</div>
+            <div class="card-body">
+              <blockquote class="blockquote mb-0">
+                <p>
+                  {{result.department}}
+                </p>
+                <footer class="blockquote-footer">
+                  <cite title="Source Title">{{result.Info}}</cite>
+                </footer>
+              </blockquote>
+            </div>
+          </div>
+        </table>
       </div>
     </div>
   </div>
@@ -51,21 +69,45 @@ export default {
     return {
       Doctors: [
         {
-          name: "	Dr. Biswajit Bhattacharjee",
-          Department: "Cancer Care Center",
+          id: 1,
+          name: "Dr. Biswajit Bhattacharjee",
+          department: "Cancer Care Center",
           Info: "Consultant (Radiation and clinical Oncology)",
           image: "Biswajit_Bhattacharjee.jpg",
         },
         {
+          id: 2,
+          name: "Dr. Biswajit ",
+          department: "Cancer Care Center",
+          Info: "Consultant ",
+          image: "Biswajit_Bhattacharjee.jpg",
+        },
+        {
+          id: 3,
           name: "Dr. Anonto",
-          Department: "AIDS",
+          department: "AIDS",
           Info: "Consultant (Radiation and clinical Oncology)",
           image: "Biswajit_Bhattacharjee.jpg",
         },
         {
+          id: 4,
+          name: "Dr. Anonto CB",
+          department: "AIDS",
+          Info: "Consultant",
+          image: "Biswajit_Bhattacharjee.jpg",
+        },
+        {
+          id: 5,
           name: "Dr. Arik",
-          Department: "ENT",
+          department: "ENT",
           Info: "Consultant (Radiation and clinical Oncology)",
+          image: "Biswajit_Bhattacharjee.jpg",
+        },
+        {
+          id: 6,
+          name: "Dr. Arik Md Isthiaque",
+          department: "ENT",
+          Info: "Consultant",
           image: "Biswajit_Bhattacharjee.jpg",
         },
       ],
@@ -83,8 +125,17 @@ export default {
           id: 3,
         },
       ],
-      Selected: "",
+      SelectedDepartmentID: null,
+      SearchResult: null,
     };
+  },
+  methods: {
+    ShowSearchResult() {
+      this.SearchResult = this.Doctors.filter(
+        (obj) => obj.department === this.SelectedDepartmentID
+      );
+      console.log(this.SearchResult);
+    },
   },
 };
 </script>
@@ -99,9 +150,14 @@ h1 {
 #find_dept,
 #find_name,
 #result_col {
-  border: 1px solid green;
+  border: 1px solid rgb(112, 212, 112);
   border-radius: 5px;
   margin: 20px;
   padding: 20px;
+}
+#result_card{
+  display: grid;
+  padding: 10px;
+  margin: 10px;
 }
 </style>
