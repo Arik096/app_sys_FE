@@ -2,13 +2,14 @@
   <div class="home">
     <div id="home_title" class="container">
       <div class="row">
-      <h1>Welome</h1>
+        <h1>Welome</h1>
       </div>
     </div>
     <div class="container" id="option_boxes">
       <div class="row">
         <div
-          class="col-sm" id="single_box"
+          class="col-sm"
+          id="single_box"
           v-for="homepage_icon in homepage_icons"
           :key="homepage_icon.name"
         >
@@ -42,20 +43,17 @@ export default {
 </script>
 
 <style>
-#home_title, #option_boxes{
-  padding: 25px;
+#home_title,
+#option_boxes {
+  padding: 10px;
   display: grid;
-  align-self: center; 
-  align-items: center;
-  justify-items: center;
+  place-items: center;
 }
-#single_box{
-  padding-left: 50px;
-  padding-right: 50px;
+#single_box {
   padding-top: 10px;
+  max-width: auto;
+  padding-bottom: 20px;
   display: grid;
-  align-self: center; 
-  align-items: center;
-  justify-items: center;
+  place-items: center;
 }
 </style>

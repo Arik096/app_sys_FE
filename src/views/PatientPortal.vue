@@ -1,13 +1,8 @@
-<template>
-  portal
-</template>
+<template>portal</template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style>
-
 </style>
