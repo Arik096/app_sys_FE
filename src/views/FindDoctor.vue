@@ -3,27 +3,21 @@
   <div class="container">
     <div class="row">
       <div class="col-sm" id="find_dept">
-        <h4>
-          <div class="input-group mb-3">
-            <label class="input-group-text" for="inputGroupSelect01"
-              >Find By Department</label
+        <div class="input-group mb-3">
+          <label class="input-group-text" for="inputGroupSelect01"
+            >Find By Department</label
+          >
+          <select class="form-select" v-model="SelectedDepartmentID">
+            <option
+              v-for="department in departments"
+              :key="department.id"
+              :value="department.name"
             >
-            <select
-              class="form-select"
-              v-model="SelectedDepartmentID"
-              @change="ShowSearchResult()"
-            >
-              <option selected disabled>Choose a Department</option>
-              <option
-                v-for="department in departments"
-                :key="department.id"
-                :value="department.name"
-              >
-                {{ department.name }}
-              </option>
-            </select>
-          </div>
-        </h4>
+              {{ department.name }}
+            </option>
+          </select>
+        </div>
+        <button class="btn btn-info" @click="ShowDeptSearchResult()">Search</button>
       </div>
       <div class="col-sm" id="find_name">
         <div class="input-group mb-3">
@@ -32,32 +26,32 @@
             type="text"
             class="form-control"
             placeholder="type name here"
-            aria-label="Username"
-            aria-describedby="basic-addon1"
+            v-model="typedName"
           />
         </div>
+        <button class="btn btn-info" @click="ShowNameSearchResult()">Search</button>
       </div>
     </div>
   </div>
-  <div class="container">
+  <div class="container" v-if="SearchResult">
     <div class="row" id="result">
+      <h4>Result</h4>
       <div class="col-sm" id="result_card">
-        <h4>Result</h4>
-        <table v-for="result in SearchResult" :key="result.id">
-          <div class="card" id="result-card">
-            <div class="card-header">{{result.name}}</div>
+        <div v-for="result in SearchResult" :key="result.id">
+          <div class="card">
+            <div class="card-header">{{ result.name }}</div>
             <div class="card-body">
-              <blockquote class="blockquote mb-0">
+              <blockquote class="blockquote">
                 <p>
-                  {{result.department}}
+                  {{ result.department }}
                 </p>
                 <footer class="blockquote-footer">
-                  <cite title="Source Title">{{result.Info}}</cite>
+                  <cite title="Source Title">{{ result.Info }}</cite>
                 </footer>
               </blockquote>
             </div>
           </div>
-        </table>
+        </div>
       </div>
     </div>
   </div>
@@ -126,16 +120,23 @@ export default {
         },
       ],
       SelectedDepartmentID: null,
+      typedName: null,
       SearchResult: null,
     };
   },
   methods: {
-    ShowSearchResult() {
+    ShowDeptSearchResult() {
+      this.SearchResult = null;
       this.SearchResult = this.Doctors.filter(
         (obj) => obj.department === this.SelectedDepartmentID
       );
-      console.log(this.SearchResult);
     },
+    ShowNameSearchResult(){
+      this.SearchResult = null;
+      this.SearchResult = this.Doctors.filter(
+        (obj) => obj.name.toLowerCase().match(this.typedName.toLowerCase())
+      );
+    }
   },
 };
 </script>
@@ -145,17 +146,16 @@ h1 {
   padding: 25px;
 }
 #result {
-  padding: 20px;
 }
 #find_dept,
 #find_name,
-#result_col {
-  border: 1px solid rgb(112, 212, 112);
-  border-radius: 5px;
+#result {
   margin: 20px;
   padding: 20px;
+  border: 1px solid rgb(112, 212, 112);
+  border-radius: 5px;
 }
-#result_card{
+#result_card {
   display: grid;
   padding: 10px;
   margin: 10px;
