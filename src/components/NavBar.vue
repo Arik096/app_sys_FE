@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-teal" id="custom_nav">
     <div class="container" id="custom_nav">
-      <a class="navbar-brand" href="#">App_sys</a>
+      <a class="navbar-brand"><router-link to="/">App Sys</router-link></a>
       <button
         class="navbar-toggler"
         type="button"
