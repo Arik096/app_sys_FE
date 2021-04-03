@@ -44,6 +44,9 @@
       <div class="col-sm">
         <h4>Result</h4>
         <div class="col-sm" id="result_card">
+          <div v-if="!NoResultFound">
+            <h6>No Result Found</h6>
+          </div>
           <div v-for="result in SearchResult" :key="result.id">
             <div class="card">
               <div class="card-header">{{ result.name }}</div>
@@ -130,6 +133,7 @@ export default {
       SelectedDepartmentID: null,
       typedName: null,
       SearchResult: null,
+      NoResultFound: 0,
     };
   },
   methods: {
@@ -138,12 +142,14 @@ export default {
       this.SearchResult = this.Doctors.filter(
         (obj) => obj.department === this.SelectedDepartmentID
       );
+      this.NoResultFound = this.SearchResult.length;
     },
     ShowNameSearchResult() {
       this.SearchResult = null;
       this.SearchResult = this.Doctors.filter((obj) =>
         obj.name.toLowerCase().match(this.typedName.toLowerCase())
       );
+      this.NoResultFound = this.SearchResult.length;
     },
   },
 };
