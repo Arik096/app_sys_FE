@@ -32,13 +32,25 @@
           </div>
           <div class="input-group mb-3">
             <label class="input-group-text">Doctor</label>
-            <select class="form-select">
+            <select class="form-select" v-model="SelectedDoctorName" @change="ComputeTheDoctorSlot()">
               <option
                 v-for="doctor in TheFilteredDoctorList"
                 :key="doctor.id"
                 :value="doctor.name"
               >
                 {{ doctor.name }}
+              </option>
+            </select>
+          </div>
+          <div class="input-group mb-3">
+            <label class="input-group-text">Slot</label>
+            <select class="form-select">
+              <option
+                v-for="doctor in SelectedDoctorSlot"
+                :key="doctor.id"
+                :value="doctor.slot"
+              >
+                {{ doctor.slot }}
               </option>
             </select>
           </div>
@@ -123,6 +135,8 @@ export default {
       ],
       SelectedDepartmentName: null,
       TheFilteredDoctorList: null,
+      SelectedDoctorName: null,
+      SelectedDoctorSlot: null
     };
   },
   methods: {
@@ -130,6 +144,12 @@ export default {
       this.TheFilteredDoctorList = null;
       this.TheFilteredDoctorList = this.Doctors.filter(
         (obj) => obj.department === this.SelectedDepartmentName
+      );
+    },
+    ComputeTheDoctorSlot(){
+      this.SelectedDoctorSlot = null;
+      this.SelectedDoctorSlot = this.Doctors.filter(
+        (obj) => obj.name === this.SelectedDoctorName
       );
     }
   }
