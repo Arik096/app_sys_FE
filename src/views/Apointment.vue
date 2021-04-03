@@ -5,15 +5,30 @@
       <div class="col-sm-6" id="main-col">
         <form>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" />
+            <input
+              type="text"
+              class="form-control"
+              id="floatingInput"
+              v-model="PatientName"
+            />
             <label for="floatingInput">Patient Name</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="number" class="form-control" id="floatingInput" />
+            <input
+              type="number"
+              class="form-control"
+              id="floatingInput"
+              v-model="PatientPhone"
+            />
             <label for="floatingInput">Phone</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="textarea" class="form-control" id="floatingInput" />
+            <input
+              type="textarea"
+              class="form-control"
+              id="floatingInput"
+              v-model="SiknessDetails"
+            />
             <label for="floatingInput">Sickness Details</label>
           </div>
           <div class="input-group mb-3">
@@ -51,7 +66,7 @@
           <div class="input-group mb-3">
             <label class="input-group-text">Slot</label>
             <div v-for="doctor in SelectedDoctorSlot" :key="doctor.id">
-              <select class="form-select">
+              <select class="form-select" v-model="SelectedSlot">
                 <option
                   v-for="slot in doctor.slots"
                   :key="slot.id"
@@ -64,7 +79,7 @@
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text">Choose Date</span>
-            <input type="date" class="form-control" />
+            <input type="date" class="form-control" v-model="SelectedDate" />
           </div>
           <button
             type="button"
@@ -86,9 +101,9 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
+                <h3 class="modal-title" id="exampleModalLabel">
                   Appointment Status
-                </h5>
+                </h3>
                 <button
                   type="button"
                   class="btn-close"
@@ -96,7 +111,20 @@
                   aria-label="Close"
                 ></button>
               </div>
-              <div class="modal-body">...</div>
+              <div class="modal-body" id="modal-content">
+                <div id="serial-badge">
+                  <span class="badge bg-warning text-dark"
+                    ><h4>Serial No: {{ Serial }}</h4></span
+                  >
+                </div>
+                <p>Patient Name: {{ PatientName }}</p>
+                <p>Phone: {{ PatientPhone }}</p>
+                <p>Sickness Details: {{ SiknessDetails }}</p>
+                <p>Doctor Name: {{ SelectedDoctorName }}</p>
+                <p>Depratment: {{ SelectedDepartmentName }}</p>
+                <p>Date: {{ SelectedDate }}</p>
+                <p>Time: {{ SelectedSlot }}</p>
+              </div>
               <div class="modal-footer">
                 <button
                   type="button"
@@ -293,11 +321,17 @@ export default {
           id: 3,
         },
       ],
+      PatientName: null,
+      PatientPhone: null,
+      SiknessDetails: null,
+      SelectedSlot: null,
+      SelectedDate: null,
       SelectedDepartmentName: null,
       TheFilteredDoctorList: null,
       SelectedDoctorName: null,
       SelectedDoctorSlot: null,
       ShowModal: 0,
+      Serial: 12,
     };
   },
   methods: {
@@ -332,5 +366,14 @@ export default {
 #main-row {
   display: flex;
   justify-content: center;
+}
+#modal-content {
+  display: grid;
+  justify-items: self-start;
+}
+#serial-badge {
+  display: grid;
+  place-items: center;
+  padding: 10px;
 }
 </style>
