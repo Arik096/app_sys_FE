@@ -56,7 +56,7 @@
                     {{ result.department }}
                   </p>
                   <footer class="blockquote-footer">
-                    <cite title="Source Title">{{ result.Info }}</cite>
+                    <cite title="Source Title">{{ result.info }}</cite>
                   </footer>
                 </blockquote>
               </div>
@@ -77,42 +77,42 @@ export default {
           id: 1,
           name: "Dr. Biswajit Bhattacharjee",
           department: "Cancer Care Center",
-          Info: "Consultant (Radiation and clinical Oncology)",
+          info: "Consultant (Radiation and clinical Oncology)",
           image: "Biswajit_Bhattacharjee.jpg",
         },
         {
           id: 2,
           name: "Dr. Biswajit ",
           department: "Cancer Care Center",
-          Info: "Consultant ",
+          info: "Consultant ",
           image: "Biswajit_Bhattacharjee.jpg",
         },
         {
           id: 3,
           name: "Dr. Anonto",
           department: "AIDS",
-          Info: "Consultant (Radiation and clinical Oncology)",
+          info: "Consultant (Radiation and clinical Oncology)",
           image: "Biswajit_Bhattacharjee.jpg",
         },
         {
           id: 4,
           name: "Dr. Anonto CB",
           department: "AIDS",
-          Info: "Consultant",
+          info: "Consultant",
           image: "Biswajit_Bhattacharjee.jpg",
         },
         {
           id: 5,
           name: "Dr. Arik",
           department: "ENT",
-          Info: "Consultant (Radiation and clinical Oncology)",
+          info: "Consultant (Radiation and clinical Oncology)",
           image: "Biswajit_Bhattacharjee.jpg",
         },
         {
           id: 6,
           name: "Dr. Arik Md Isthiaque",
           department: "ENT",
-          Info: "Consultant",
+          info: "Consultant",
           image: "Biswajit_Bhattacharjee.jpg",
         },
       ],

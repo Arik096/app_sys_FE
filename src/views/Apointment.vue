@@ -17,10 +17,10 @@
             <label for="floatingInput">Sickness Details</label>
           </div>
           <div class="input-group mb-3">
-            <label class="input-group-text" for="inputGroupSelect01"
+            <label class="input-group-text"
               >Departmemt</label
             >
-            <select class="form-select">
+            <select class="form-select" v-model="SelectedDepartmentName" @change="ComputeTheDoctorList()">
               <option
                 v-for="department in departments"
                 :key="department.id"
@@ -31,12 +31,10 @@
             </select>
           </div>
           <div class="input-group mb-3">
-            <label class="input-group-text"
-              >Doctor</label
-            >
+            <label class="input-group-text">Doctor</label>
             <select class="form-select">
               <option
-                v-for="doctor in Doctors"
+                v-for="doctor in TheFilteredDoctorList"
                 :key="doctor.id"
                 :value="doctor.name"
               >
@@ -46,10 +44,7 @@
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Choose Date</span>
-            <input
-              type="date"
-              class="form-control"
-            />
+            <input type="date" class="form-control" />
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -67,43 +62,49 @@ export default {
           id: 1,
           name: "Dr. Biswajit Bhattacharjee",
           department: "Cancer Care Center",
-          Info: "Consultant (Radiation and clinical Oncology)",
+          info: "Consultant (Radiation and clinical Oncology)",
           image: "Biswajit_Bhattacharjee.jpg",
+          slot: ["Morning", "Evening"],
         },
         {
           id: 2,
           name: "Dr. Biswajit ",
           department: "Cancer Care Center",
-          Info: "Consultant ",
+          info: "Consultant ",
           image: "Biswajit_Bhattacharjee.jpg",
+          slot: ["Morning", "Evening"],
         },
         {
           id: 3,
           name: "Dr. Anonto",
           department: "AIDS",
-          Info: "Consultant (Radiation and clinical Oncology)",
+          info: "Consultant (Radiation and clinical Oncology)",
           image: "Biswajit_Bhattacharjee.jpg",
+          slot: ["Morning", "Evening"],
         },
         {
           id: 4,
           name: "Dr. Anonto CB",
           department: "AIDS",
-          Info: "Consultant",
+          info: "Consultant",
           image: "Biswajit_Bhattacharjee.jpg",
+          slot: ["Morning", "Evening"],
         },
         {
           id: 5,
           name: "Dr. Arik",
           department: "ENT",
-          Info: "Consultant (Radiation and clinical Oncology)",
+          info: "Consultant (Radiation and clinical Oncology)",
           image: "Biswajit_Bhattacharjee.jpg",
+          slot: ["Morning", "Evening"],
         },
         {
           id: 6,
           name: "Dr. Arik Md Isthiaque",
           department: "ENT",
-          Info: "Consultant",
+          info: "Consultant",
           image: "Biswajit_Bhattacharjee.jpg",
+          slot: ["Morning", "Evening"],
         },
       ],
       departments: [
@@ -120,12 +121,18 @@ export default {
           id: 3,
         },
       ],
-      SelectedDepartmentID: null,
-      typedName: null,
-      SearchResult: null,
-      NoResultFound: 0,
+      SelectedDepartmentName: null,
+      TheFilteredDoctorList: null,
     };
   },
+  methods: {
+    ComputeTheDoctorList(){
+      this.TheFilteredDoctorList = null;
+      this.TheFilteredDoctorList = this.Doctors.filter(
+        (obj) => obj.department === this.SelectedDepartmentName
+      );
+    }
+  }
 };
 </script>
 
