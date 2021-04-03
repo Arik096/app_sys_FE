@@ -18,7 +18,7 @@
               </option>
             </select>
           </div>
-          <button class="btn btn-info" @click="ShowDeptSearchResult()">
+          <button class="btn btn-primary" @click="ShowDeptSearchResult()">
             Search
           </button>
         </div>
@@ -32,7 +32,7 @@
               v-model="typedName"
             />
           </div>
-          <button class="btn btn-info" @click="ShowNameSearchResult()">
+          <button class="btn btn-primary" @click="ShowNameSearchResult()">
             Search
           </button>
         </div>
