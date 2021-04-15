@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import Apointment from "../views/Apointment.vue";
 import FindDoctor from "../views/FindDoctor.vue";
 import PatientPortal from "../views/PatientPortal.vue";
+import DoctorPortal from "../views/DoctorPortal.vue";
 
 const routes = [
   {
@@ -25,6 +26,11 @@ const routes = [
     path: "/patientportal",
     name: "PatientPortal",
     component: PatientPortal,
+  },
+  {
+    path: "/doctorportal",
+    name: "DoctorPortal",
+    component: DoctorPortal,
   },
 ];
 

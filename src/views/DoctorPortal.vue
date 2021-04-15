@@ -1,7 +1,7 @@
 <template>
 <div class="container">
     <div class="row">
-        <h1>Patient Portal</h1>
+        <h1>Doctor Portal</h1>
     </div>
 </div>
 

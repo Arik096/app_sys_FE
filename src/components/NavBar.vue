@@ -31,7 +31,9 @@
           </li>
         </ul>
         <div class="d-flex">
-          <button class="btn btn-outline-light">Login</button>
+          <button class="btn btn-outline-danger">
+            <router-link :to="{ name: 'DoctorPortal' }">Login</router-link>
+          </button>
         </div>
       </div>
     </div>
