@@ -6,12 +6,16 @@ import FindDoctor from "../views/FindDoctor.vue";
 import PatientPortal from "../views/PatientPortal.vue";
 import DoctorPortal from "../views/DoctorPortal.vue";
 
+import DoctorHome from "../views/DoctorViews/DoctorHome.vue";
+import PatientHome from "../views/PatientViews/PatientHome.vue";
+
 const routes = [
   {
     path: "/",
     name: "Home",
     component: Home,
   },
+
   {
     path: "/apointment",
     name: "Apointment",
@@ -31,6 +35,17 @@ const routes = [
     path: "/doctorportal",
     name: "DoctorPortal",
     component: DoctorPortal,
+  },
+
+  {
+    path: "/doctorhome",
+    name: "DoctorHome",
+    component: DoctorHome,
+  },
+  {
+    path: "/patienthome",
+    name: "PatientHome",
+    component: PatientHome,
   },
 ];
 
