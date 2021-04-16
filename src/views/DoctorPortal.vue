@@ -4,7 +4,7 @@
         <h1>Doctor Portal</h1>
     </div>
 </div>
-<LogIn />
+<LogIn :LoginViewName="LoginViewName"/>
 </template>
 
 
@@ -15,6 +15,11 @@ import LogIn from "../components/LogIn.vue";
 export default {
     components: {
         LogIn,
+    },
+    data(){
+        return{
+            LoginViewName: "Doctor",
+        }
     }
 };
 </script>

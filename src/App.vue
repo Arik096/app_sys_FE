@@ -1,11 +1,5 @@
 <template>
   <NavBar />
-  <!-- <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link :to="{name: 'Apointment'}">Apointment</router-link> |
-    <router-link :to="{name: 'FindDoctor'}">Find Doctor</router-link> |
-    <router-link :to="{name: 'PatientPortal'}">Patient Portal</router-link>
-  </div> -->
   <router-view />
   <Footer />
 </template>
