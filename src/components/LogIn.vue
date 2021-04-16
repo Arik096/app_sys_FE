@@ -5,22 +5,28 @@
         <form id="login_form">
           <div class="input-group mb-3">
             <span class="input-group-text">Username</span>
-            <input type="text" class="form-control"/>
+            <input type="text" class="form-control" />
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text">Password</span>
-            <input type="password" autocomplete="off" class="form-control"/>
+            <input type="password" autocomplete="off" class="form-control" />
           </div>
           <div id="login_form_buttons">
-            <button
-              class="btn btn-primary"
-              id="login_button"
-            >
-              Login
+            <button class="btn btn-primary" id="login_button">
+              <router-link
+                id="login_router_link"
+                :to="{ name: 'DoctorHome' }"
+                v-if="LoginViewName == 'Doctor'"
+                >Login as Doctor</router-link
+              >
+              <router-link
+                id="login_router_link"
+                :to="{ name: 'PatientHome' }"
+                v-if="LoginViewName == 'Patient'"
+                >Login as Patient</router-link
+              >
             </button>
-            <button class="btn btn-warning" id="signup_button">
-              Signup
-            </button>
+            <button class="btn btn-warning" id="signup_button">Signup</button>
           </div>
         </form>
       </div>
@@ -30,7 +36,7 @@
 
 <script>
 export default {
-  props: ['LoginViewName']
+  props: ["LoginViewName"],
 };
 </script>
 
@@ -50,5 +56,10 @@ export default {
 #login_button,
 #signup_button {
   margin: 5px;
+}
+a{
+    text-decoration: none !important;
+    color: rgb(251, 251, 251) !important;
+    font-size: 16px !important;
 }
 </style>
