@@ -13,7 +13,7 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <div class="collapse navbar-collapse" id="navbar-right-aling">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <router-link to="/">Home</router-link>
@@ -25,16 +25,76 @@
             <router-link :to="{ name: 'FindDoctor' }">Find Doctor</router-link>
           </li>
           <li class="nav-item">
-            <router-link :to="{ name: 'PatientPortal' }"
-              >Patient Portal</router-link
-            >
+            <div class="dropdown">
+              <a
+                id="Patient_portal_button_dropdown"
+                class="btn dropdown-toggle"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                Patient Portal
+              </a>
+
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li>
+                  <a class="dropdown-item"
+                    ><router-link :to="{ name: 'PatientPortal' }"
+                      >Login</router-link
+                    ></a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item"
+                    ><router-link :to="{ name: 'PatientProfile' }"
+                      >Profile</router-link
+                    ></a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item"
+                    ><router-link :to="{ name: 'AppointmentHistoryPatient' }"
+                      >History</router-link
+                    ></a
+                  >
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
+              <a
+                id="Patient_portal_button_dropdown"
+                class="btn dropdown-toggle"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                Doctor Portal
+              </a>
+
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li>
+                  <a class="dropdown-item"
+                    ><router-link :to="{ name: 'DoctorPortal' }">Login</router-link></a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item"
+                    ><router-link :to="{ name: 'PatientProfile' }"
+                      >Profile</router-link
+                    ></a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item"
+                    ><router-link :to="{ name: 'AppointmentHistoryPatient' }"
+                      >History</router-link
+                    ></a
+                  >
+                </li>
+              </ul>
+            </div>
           </li>
         </ul>
-        <div class="d-flex">
-          <button class="btn btn-outline-danger">
-            <router-link :to="{ name: 'DoctorPortal' }">Login</router-link>
-          </button>
-        </div>
       </div>
     </div>
   </nav>
@@ -56,5 +116,11 @@ li {
   text-decoration: none !important;
   color: #ffffff !important;
   font-size: 26px !important;
+}
+#Patient_portal_button_dropdown {
+  padding: 0px !important;
+}
+#navbar-right-aling{
+  flex-grow: inherit;
 }
 </style>

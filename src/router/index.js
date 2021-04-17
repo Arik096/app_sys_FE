@@ -9,6 +9,10 @@ import DoctorPortal from "../views/DoctorPortal.vue";
 import DoctorHome from "../views/DoctorViews/DoctorHome.vue";
 import PatientHome from "../views/PatientViews/PatientHome.vue";
 
+
+import PatientProfile from "../components/PatientComponent/PatientProfile.vue";
+import AppointmentHistoryPatient from "../components/PatientComponent/AppointmentHistoryPatient.vue";
+
 const routes = [
   {
     path: "/",
@@ -46,6 +50,17 @@ const routes = [
     path: "/patienthome",
     name: "PatientHome",
     component: PatientHome,
+  },
+
+  {
+    path: "/patientprofile",
+    name: "PatientProfile",
+    component: PatientProfile,
+  },
+  {
+    path: "/appointmenthistory",
+    name: "AppointmentHistoryPatient",
+    component: AppointmentHistoryPatient,
   },
 ];
 
