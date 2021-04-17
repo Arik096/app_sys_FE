@@ -1,5 +1,12 @@
 <template>
-  <h1>this the patient home</h1>
+<div class="container">
+  <div class="col">
+    <div class="row">
+        <h1>Welcome to the Patient Portal</h1>
+    </div>
+  </div>
+</div>
+
 </template>
 
 <script>
