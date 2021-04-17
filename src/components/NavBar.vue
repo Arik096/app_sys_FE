@@ -13,7 +13,7 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbar-right-aling">
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <router-link to="/">Home</router-link>
@@ -35,7 +35,7 @@
                 Patient Portal
               </a>
 
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="dropdownMenuLink">
                 <li>
                   <a class="dropdown-item"
                     ><router-link :to="{ name: 'PatientPortal' }"
@@ -71,7 +71,7 @@
                 Doctor Portal
               </a>
 
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="dropdownMenuLink">
                 <li>
                   <a class="dropdown-item"
                     ><router-link :to="{ name: 'DoctorPortal' }">Login</router-link></a
@@ -120,7 +120,14 @@ li {
 #Patient_portal_button_dropdown {
   padding: 0px !important;
 }
-#navbar-right-aling{
+#navbarTogglerDemo02{
   flex-grow: inherit;
+}
+#dropdownMenuLink{
+  background-color: #41b883 !important;
+}
+#dropdownMenuLink li a:hover{
+  background-color: #030303 !important;
+  border-radius: 5px;
 }
 </style>
