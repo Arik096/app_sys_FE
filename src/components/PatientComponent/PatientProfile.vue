@@ -6,8 +6,10 @@
       <div class="col-sm-3" v-for="patient in Patient" :key="patient.id">
         <img :src="require('../../assets/Patient_img/' + patient.img)" />
       </div>
-      <div class="col-sm-7">
-        <h1>hello</h1>
+      <div class="col-sm-7" v-for="patient in Patient" :key="patient.id">
+        <h5>Name: {{patient.name}}</h5>
+        <h5>Phone: {{patient.phone}}</h5>
+        <h5>Details: {{patient.details}}</h5>
       </div>
     </div>
   </div>
@@ -19,7 +21,7 @@ export default {
 data(){
   return{
     Patient: [
-      {Name: "arik", phone: "01521493029", img: "anonto.jpg", Details: "Fever", id: 1}
+      {name: "Anonto Chondro Bormon", phone: "01521493029", img: "anonto.jpg", details: "AIDS", id: 1}
     ]
   }
 }
@@ -46,6 +48,12 @@ place-items: center;
   margin: 5px;
   border: 2px solid green;
   border-radius: 10px;
+  height: 170px;
+  width: 170px;
+  
+}
+#profile_box .row .col-sm-7 {
+  display: gird;
   
 }
 
