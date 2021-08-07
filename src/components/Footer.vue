@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <h6>Copyright @ Infinity Solve Engineering Limited</h6>
+    <h6>Copyright @ Arik Md Isthiaque</h6>
   </div>
 </template>
 
